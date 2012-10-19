@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
+import os
 
-DEPLOYMENT_MODE = 'dev'
+DEPLOYMENT_MODE = os.getenv("DEPLOYMENT_MODE", 'dev')
 COMPRESS_REVISION_NUMBER = '1.0'
 
 
@@ -96,10 +97,9 @@ BITBUCKET_SHOW_FORKS = False
 
 
 if DEPLOYMENT_MODE == 'dev':
-    SITE_ROOT_URI = 'http://127.0.0.1:8000/'
     DEBUG = True
 else:
     DEBUG = False
-    SITE_ROOT_URI = '[ENTER PROD URL HERE] ex. http://rigoneri.herokuapp.com/'
 
+SITE_ROOT_URI = os.getenv('SITE_ROOT_URI', 'http://127.0.0.1:8000/')
 MEDIA_URL = SITE_ROOT_URI + 'static/'
