@@ -1,7 +1,4 @@
 # because this app has a Procfile
 framework: buildpack
 
-ignores: [
-  .git
-  readme-imgs
-]
+ignores: [".git", "readme-imgs"]
