@@ -5,7 +5,7 @@ framework: buildpack
 
 env:
   DJANGO_SETTINGS_MODULE: syte.settings
-  DEPLOYMENT_MODE: prod
+  # DEPLOYMENT_MODE: prod
   SITE_ROOT_URI: ${name}.${target-base}
 
 services:
