@@ -1,4 +1,17 @@
-# because this app has a Procfile
+name: syte
+
+# this app can also be deployed to heroku.
 framework: buildpack
+
+env:
+  DJANGO_SETTINGS_MODULE: syte.settings
+  DEPLOYMENT_MODE: prod
+  SITE_ROOT_URI: ${name}.${target-base}
+
+services:
+  # use a staging cache to speedup subsequent deployments.
+  ${name}-cache: filesystem
+  # dummy db
+  db: postgresql
 
 ignores: [".git", "readme-imgs"]
